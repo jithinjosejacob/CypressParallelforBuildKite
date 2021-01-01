@@ -1,0 +1,22 @@
+{
+  "name": "cypressparallelforbuildkite",
+  "version": "1.0.0",
+  "description": "Cypress Parallel Tests for BuildKite CI",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run --spec cypress/integration/*.js --browser chrome"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jithinjosejacob/CypressParallelforBuildKite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jithinjosejacob/CypressParallelforBuildKite/issues"
+  },
+  "homepage": "https://github.com/jithinjosejacob/CypressParallelforBuildKite#readme",
+  "dependencies": {
+    "cypress": "^6.1.0"
+  }
+}

@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  cypress:
+    image: my-cypress:latest
+
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    # This handles other weirdness with Docker and Electron
+    ipc: host
+
+    environment:
+      - VERSION
+      - SPECS
+      - BUILDKITE_BUILD_ID
+      - CYPRESS_PASSWORD
+      - CYPRESS_EMAIL
+      - CYPRESS_PROJECT_NAME
+
+    volumes:
+      - ./artifacts/video/:/opt/e2e/cypress/videos/
+      - ./artifacts/screenshots/:/opt/e2e/cypress/screenshots/
+
+    command: "npm run tests"

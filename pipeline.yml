@@ -1,0 +1,16 @@
+  steps:
+    - label: ':npm: :docker: Step 2'
+      plugins:
+        - docker-compose#v3.7.0:
+            run: cypress
+            config: e2e/docker-compose.e2e.yml
+            # propagate-uid-gid: true
+            env:
+              VERSION: '$BUILDKITE_BUILD_ID'
+              SPECS: '$SPECS'
+              BASE_URL: '$BASE_URL,'
+              CYPRESS_PASSWORD: '$CYPRESS_PASSWORD'
+              CYPRESS_EMAIL: '$CYPRESS_EMAIL'
+              CYPRESS_PROJECT_NAME: '$CYPRESS_PROJECT_NAME'
+        - artifacts#v1.3.0:
+            upload: ['./e2e/artifacts/*', './e2e/artifacts/**/*']
