@@ -1,9 +1,5 @@
 FROM cypress/included:4.1.0
 
-RUN chmod 755 config/docker-entrypoint.sh
-
-ENTRYPOINT ["/docker-entrypoint.sh"]
-
 WORKDIR /app
 
 COPY ./cypress ./cypress
